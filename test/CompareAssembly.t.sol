@@ -11,7 +11,7 @@ contract CompareAssemblyTest is Test {
         compareAssembly = new CompareAssembly();
     }
 
-    function test_gas_assembly() public {
+    function test_gas_assembly() public view {
         uint256 result = compareAssembly.solution(4, 2);
         assertEq(result, 2);
     }

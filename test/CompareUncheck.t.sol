@@ -11,7 +11,7 @@ contract CompareTest is Test {
         compareUncheck = new CompareUncheck();
     }
 
-    function test_gas_solidity() public {
+    function test_gas_solidity() public view {
         uint256 result = compareUncheck.solution(4, 2);
         assertEq(result, 2);
     }

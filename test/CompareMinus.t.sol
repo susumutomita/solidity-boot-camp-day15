@@ -11,7 +11,7 @@ contract CompareMinusTest is Test {
         compareMinus = new CompareMinus();
     }
 
-    function test_gas_solidity() public {
+    function test_gas_solidity() public view {
         int256 result = compareMinus.solution(-4, -2);
         assertEq(result, 2);
     }
