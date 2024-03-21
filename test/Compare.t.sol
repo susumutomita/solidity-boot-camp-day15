@@ -12,8 +12,7 @@ contract CompareTest is Test {
     }
 
     function test_gas_solidity() public {
-        uint256 result = compare.solution(4,2);
+        uint256 result = compare.solution(4, 2);
         assertEq(result, 2);
     }
-
 }
