@@ -1,6 +1,10 @@
 name: test
 
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+  pull_request:
+    branches: ['main']
 
 env:
   FOUNDRY_PROFILE: ci
@@ -22,13 +26,12 @@ jobs:
         with:
           version: nightly
 
-      - name: Run Forge build
+      - name: Run Forge format
         run: |
-          forge --version
-          forge build --sizes
-        id: build
+          make format_check
+        id: format_check
 
       - name: Run Forge tests
         run: |
-          forge test --gas-report -vvvvv
+          make test
         id: test
