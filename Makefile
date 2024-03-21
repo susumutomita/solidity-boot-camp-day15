@@ -31,6 +31,10 @@ test_debug:
 examine_storage_Compare:
 	sol2uml storage -c Compare src
 
+.PHONY: examine_storage_CompareMinus
+examine_storage_CompareMinus:
+	sol2uml storage -c CompareMinus src
+
 .PHONY: examine_storage_CompareAssembly
 examine_storage_CompareAssembly:
 	sol2uml storage -c CompareAssembly src
@@ -51,6 +55,10 @@ open_class:
 opcodes_Compare:
 	solc --bin --opcodes --asm src/Compare.sol
 
+.PHONY: opcodes_CompareMinus
+opcodes_CompareMinus:
+	solc --bin --opcodes --asm src/CompareMinus.sol
+
 .PHONY: opcodes_CompareAssembly
 opcodes_CompareAssembly:
 	solc --bin --opcodes --asm src/CompareAssembly.sol
@@ -63,6 +71,10 @@ opcodes_CompareUncheck:
 open_storage_Compare:
 	open -a Google\ Chrome ./Compare.svg
 
+.PHONY: open_storage_CompareMinus
+open_storage_CompareMinus:
+	open -a Google\ Chrome ./CompareMinus.svg
+
 .PHONY: open_storage_CompareAssembly
 open_storage_CompareAssembly:
 	open -a Google\ Chrome ./CompareAssembly.svg
@@ -72,7 +84,7 @@ open_storage_CompareUncheck:
 	open -a Google\ Chrome ./CompareUncheck.svg
 
 .PHONY: examine_storage
-examine_storage: examine_storage_Compare examine_storage_CompareAssembly examine_storage_CompareUncheck
+examine_storage: examine_storage_Compare examine_storage_CompareMinus examine_storage_CompareAssembly examine_storage_CompareUncheck
 
 .PHONY: before_commit
 before_commit: format test examine_storage examine_class
